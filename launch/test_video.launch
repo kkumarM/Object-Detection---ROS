@@ -1,0 +1,6 @@
+<launch>
+    <include file="$(find apple_detection_pkg)/launch/apple_detection.launch"/>
+
+    <param name="/test_folder" type="string" value="$(find apple_detection_pkg)/tests/"/>
+    <node pkg="apple_detection_pkg" type="test.py" name="test_feed" output="screen"/>
+</launch>

@@ -1,0 +1,9 @@
+
+# Detector Parameters
+camera_input_topic: "/front_cam/camera/image"       # Input Topic
+output_topic: "/detected"                           # Output Topic
+log_to_screen: false                                # For printing log information on screen
+
+# For Test Video, parameters
+test_video: "2061512430.mp4"                              # Name of the Test Video
+test_video_rate: 10                                 # Ros publish rate

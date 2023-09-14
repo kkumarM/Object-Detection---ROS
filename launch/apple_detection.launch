@@ -1,0 +1,18 @@
+<launch> 
+    <arg name="usecase" default="apple_detection"/>
+    <arg name="model" default='detection.pt'/>
+    <arg name="model1" default='classification.pt'/>
+    <arg name="model_path" default="$(find apple_detection_pkg)/weights/$(arg model)"/>
+    <arg name="model1_path" default="$(find apple_detection_pkg)/weights/$(arg model1)"/>
+    <arg name="rviz_file" default="$(find apple_detection_pkg)/configs/default.rviz"/>
+
+    <rosparam file="$(find apple_detection_pkg)/configs/config.yaml" />
+    
+    <!-- Load in Model with Camera input/output -->
+    <param name="/usecase" type="string" value="$(arg usecase)" />
+    <param name="/model_path" type="string" value="$(arg model_path)" />
+    <param name="/model1_path" type="string" value="$(arg model_path)" />
+    <node pkg="apple_detection_pkg" type="run.py" name="apple_detection" output="screen"/>
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(arg rviz_file)"/>
+</launch>
